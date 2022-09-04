@@ -23,15 +23,16 @@ public class JumpAugment : MonoBehaviour
     {
         if (other.TryGetComponent(out UnityStandardAssets.Characters.FirstPerson.FPController player))
         {
+            StoreJump = player.m_JumpSpeed;
             player.m_JumpSpeed = PushStrength;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.TryGetComponent(out UnityStandardAssets.Characters.FirstPerson.FPController player))
         {
-            player.m_JumpSpeed = PushStrength;
+            player.m_JumpSpeed = StoreJump;
         }
     }
 }
