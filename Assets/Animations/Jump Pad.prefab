@@ -4826,7 +4826,6 @@ GameObject:
   - component: {fileID: 8078037569387843124}
   - component: {fileID: 7835429444692050833}
   - component: {fileID: 2644665755599074906}
-  - component: {fileID: 4325342983151362956}
   - component: {fileID: 1789725500435194758}
   m_Layer: 0
   m_Name: Jump Pad
@@ -6070,31 +6069,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9111054776615077915}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: -0.39, z: 0}
---- !u!114 &4325342983151362956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9111054776615077915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d3b1702afc4ce84b86dabc23133a763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LaunchDelay: 0.1
-  LaunchForce: 100
-  PlayerLaunchForceMultiplier: 5
-  LaunchMode: 1
-  ImpactVelocityScale: 0.05
-  MaxImpactVelocityScale: 2
-  MaxDistortionWeight: 0.25
 --- !u!114 &1789725500435194758
 MonoBehaviour:
   m_ObjectHideFlags: 0

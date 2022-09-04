@@ -43,6 +43,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        private float defaultJump;
         // Use this for initialization
         private void Start()
         {
@@ -56,7 +57,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
-        }
+
+            defaultJump = m_JumpSpeed;
+    }
 
 
         // Update is called once per frame
@@ -240,9 +243,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_MouseLook.LookRotation (transform, m_Camera.transform);
         }
 
-
+        
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
+            if (hit.gameObject.TryGetComponent(out JumpAugment jumpAug))
+            {
+                m_JumpSpeed = jumpAug.JumpHeight;
+                m_Jump = true;
+                //m_MoveDir.y = m_JumpSpeed;
+                //PlayJumpSound();
+                //m_Jump = false;
+                //m_Jumping = true;
+            }
+            else
+            {
+                m_JumpSpeed = defaultJump;
+            }
             Rigidbody body = hit.collider.attachedRigidbody;
             //dont move the rigidbody if the character is on top of it
             if (m_CollisionFlags == CollisionFlags.Below)

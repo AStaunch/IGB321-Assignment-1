@@ -4,6 +4,8 @@ using UnityEngine;
 
 public interface iTrigger
 {
+    public int channel { get; set; }
+
     public void Activate();
 
 }
